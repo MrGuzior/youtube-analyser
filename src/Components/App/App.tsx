@@ -1,8 +1,9 @@
 import React from 'react'
-import { Counter } from '../../features/counter/Counter'
-import './App.css'
+
+import { getSubscriptionsNames, getAllSubscriptionsInfo, getHistory } from '../../analyser/analyser.js'
 
 function App() {
+  getHistory()
   return (
     <div>
       <p>Hello world</p>

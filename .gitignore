@@ -11,6 +11,9 @@
 # production
 /build
 
+# private
+src/Takeout
+
 # misc
 .DS_Store
 .env.local
