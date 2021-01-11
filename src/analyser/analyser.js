@@ -35,9 +35,16 @@ export const getAllSubscriptionsInfo = () => subscriptions
 export const getSubscriptionsNames = () => subscriptions.map(sub => sub.snippet.title)
 
 export const getHistory = () => {
-    const videoLinkRgx = /(?<=https:\/\/www\.youtube\.com\/watch\?).+(?=")/g
-    const channelRgx = /"https:\/\/www\.youtube\.com\/channel\/.+"/g
-    const links = [...history.matchAll(videoLinkRgx)]
+    const videoLinkRgx = /(?<=https:\/\/www\.youtube\.com\/watch\?v=).+(?=")/g
+    const channelRgx = /(?<=https:\/\/www\.youtube\.com\/channel\/).+(?=")/g
+    const videoLinks = [...history.matchAll(videoLinkRgx)].map(link => link[0])
+    const channelLinks = [...history.matchAll(channelRgx)].map(link => link[0])
 
-    console.log(links)
+    const watchHistory = videoLinks.map((link, i) => {
+        return {
+            video: link,
+            channel: channelLinks[i]
+        }
+    })
+    return watchHistory
 }

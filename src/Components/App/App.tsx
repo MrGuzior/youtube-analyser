@@ -3,10 +3,11 @@ import React from 'react'
 import { getSubscriptionsNames, getAllSubscriptionsInfo, getHistory } from '../../analyser/analyser.js'
 
 function App() {
-  getHistory()
+  const historyList = getHistory()
+
   return (
     <div>
-      <p>Hello world</p>
+      {historyList.map(item => <p>{item.video}</p>)}
     </div>
   )
 }
