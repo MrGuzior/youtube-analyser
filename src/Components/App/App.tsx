@@ -1,21 +1,13 @@
 import React from 'react'
+import Statistics from '../ChannelStatistics/ChannelStatistics'
 
-import {
-  getSubscriptionsNames,
-  getAllSubscriptionsInfo,
-  getWatchHistory,
-  videosWatchedChannel,
-  getAllWatchedChannels
-} from '../../analyser/analyser.js'
 
-function App() {
-  console.log(getAllWatchedChannels())
 
+const App: React.FC = () => {
   return (
     <div>
-      <p>lol</p>
+      <Statistics />
     </div>
   )
 }
-
 export default App

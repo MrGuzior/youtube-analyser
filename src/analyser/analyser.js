@@ -18,14 +18,10 @@ export const getWatchHistory = {
                 if (item.subtitles) {
                     return item.subtitles[0].name
                 }
+                return
             })
         ]
     }
-}
-
-export const videosWatchedChannel = (channelId = '') => {
-    const channelNames = getWatchHistory.channels()
-    console.log(channelNames)
 }
 
 export const getAllWatchedChannels = () => {
@@ -34,6 +30,24 @@ export const getAllWatchedChannels = () => {
         if (name && !channels.includes(name)) {
             channels = [...channels, name]
         }
+        return
     })
     return channels
 }
+
+export const videosWatchedChannel = (returnLength = 100) => {
+    let channels = []
+    getAllWatchedChannels().forEach(channel => {
+        channels = [
+            ...channels,
+            {
+                name: channel,
+                watchedVideos: getWatchHistory.channels().filter(name => name === channel).length
+            }
+        ]
+    })
+    channels = channels.sort((a, b) => b.watchedVideos - a.watchedVideos)
+    channels.length = returnLength
+    return channels
+}
+
