@@ -1,10 +1,16 @@
 import React from 'react'
 
-import { getSubscriptionsNames, getAllSubscriptionsInfo } from '../../analyser/analyser.js'
+import {
+  getSubscriptionsNames,
+  getAllSubscriptionsInfo,
+  getWatchHistory,
+  videosWatchedChannel,
+  getAllWatchedChannels
+} from '../../analyser/analyser.js'
 
 function App() {
+  console.log(getAllWatchedChannels())
 
-  console.log(getSubscriptionsNames())
   return (
     <div>
       <p>lol</p>
