@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import StatisticsTable from './StatisticsTable'
 
 import {
-    videosWatchedChannel
+    getWatchedVideosChannelStatistics
 } from '../../analyser/analyser.js'
 
 interface stat {
@@ -13,7 +13,7 @@ interface stat {
 const ChannelStatistisc = () => {
     const [stats, setStats] = useState<stat[]>()
 
-    !stats && setStats(videosWatchedChannel(200))
+    !stats && setStats(getWatchedVideosChannelStatistics(100))
 
     return (
         <div>

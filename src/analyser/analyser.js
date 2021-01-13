@@ -14,7 +14,7 @@ export const getAllWatchedChannels = () => {
     return channelNames
 }
 
-export const videosWatchedChannel = (returnLength = 100) => {
+export const getWatchedVideosChannelStatistics = (returnLength = 100) => {
     let channels = []
     getAllWatchedChannels().forEach(channel => {
         channels = [
