@@ -1,6 +1,6 @@
 const watchHistory = require('../Takeout/YouTube and YouTube Music/history/watch-history.json')
 
-export const getWatchHistory = {
+const getWatchHistory = {
     videoTitles: () => watchHistory.map(item => item.title.slice(8)),
     videoUrls: () => watchHistory.map(item => item.titleUrl),
     channels: () => [...watchHistory.map(item => item.subtitles && item.subtitles[0].name)]
