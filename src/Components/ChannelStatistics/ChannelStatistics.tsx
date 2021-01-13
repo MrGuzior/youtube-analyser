@@ -13,7 +13,7 @@ interface stat {
 const ChannelStatistisc = () => {
     const [stats, setStats] = useState<stat[]>()
 
-    !stats && setStats(videosWatchedChannel())
+    !stats && setStats(videosWatchedChannel(200))
 
     return (
         <div>
