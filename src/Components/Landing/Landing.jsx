@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { useStore } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectHistory, setWatchHistory } from '../App/appSlice'
 
 const Landing = () => {
-    const [file, setFile] = useState()
+    const dispatch = useDispatch()
+    const history = useSelector(selectHistory)
     let fileReader;
 
     const onFileUpload = (file) => {
@@ -13,15 +15,18 @@ const Landing = () => {
 
     const readFile = () => {
         const text = fileReader.result
-        console.log(text)
+        dispatch(setWatchHistory(text))
+        console.log(history)
     }
+
+
 
 
 
     return (
         <div>
             <input type='file' onChange={(e) => onFileUpload(e.target.files[0])} />
-            <button onClick={readFile}>x</button>
+            <button onClick={() => console.log(history)}>x</button>
         </div>
 
     )

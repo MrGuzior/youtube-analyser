@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectHistory, setWatchHistory } from '../App/appSlice'
 import StatisticsTable from './StatisticsTable'
 
 import {
@@ -12,6 +14,9 @@ interface stat {
 
 const ChannelStatistisc = () => {
     const [stats, setStats] = useState<stat[]>()
+    const dispatch = useDispatch()
+    const history = useSelector(selectHistory)
+
 
     !stats && setStats(getWatchedVideosChannelStatistics(100))
 
