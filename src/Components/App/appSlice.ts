@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../../store/store'
 
 const initialState: any = {
-    history: {}
+    history: null
 }
 
 export const appSlice = createSlice({

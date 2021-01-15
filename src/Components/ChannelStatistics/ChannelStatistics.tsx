@@ -4,7 +4,8 @@ import { selectHistory, setWatchHistory } from '../App/appSlice'
 import StatisticsTable from './StatisticsTable'
 
 import {
-    getWatchedVideosChannelStatistics
+    getWatchedVideosChannelStatistics,
+    getStatistics
 } from '../../analyser/analyser.js'
 
 interface stat {
@@ -17,6 +18,7 @@ const ChannelStatistisc = () => {
     const dispatch = useDispatch()
     const history = useSelector(selectHistory)
 
+    //console.log(getStatistics(history, 10))
 
     !stats && setStats(getWatchedVideosChannelStatistics(100))
 
