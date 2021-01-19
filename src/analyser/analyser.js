@@ -1,10 +1,16 @@
 export const getStatistics = (history, returnLength = 100) => {
     const json = JSON.parse(history)
     const channels = [...json.map(item => item.subtitles && item.subtitles[0].name)]
-    let channelNames = []
-    channels.forEach(name => {
-        channelNames = [...channelNames, (name && !channelNames.includes(name)) ? name : '']
-    })
+
+    const channelNames = channels.reduce((arr, name) => {
+        if (name && !arr.includes(name)) {
+            arr.push(name)
+        }
+        return arr
+    }, [])
+
+
+
     let statistics = []
     channelNames.forEach(channel => {
         statistics = [
@@ -19,4 +25,3 @@ export const getStatistics = (history, returnLength = 100) => {
     statistics.length = returnLength
     return statistics
 }
-
