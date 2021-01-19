@@ -4,7 +4,6 @@ import { selectHistory, setWatchHistory } from '../App/appSlice'
 import StatisticsTable from './StatisticsTable'
 
 import {
-    getWatchedVideosChannelStatistics,
     getStatistics
 } from '../../analyser/analyser.js'
 
@@ -18,9 +17,7 @@ const ChannelStatistisc = () => {
     const dispatch = useDispatch()
     const history = useSelector(selectHistory)
 
-    //console.log(getStatistics(history, 10))
-
-    !stats && setStats(getWatchedVideosChannelStatistics(100))
+    !stats && setStats(getStatistics(history, 100))
 
     return (
         <div>
