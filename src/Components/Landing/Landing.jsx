@@ -18,20 +18,14 @@ const Landing = () => {
     const readFile = () => {
         const text = fileReader.result
         dispatch(setWatchHistory(text))
-        console.log(history)
     }
 
     const handleRedirect = () => history ? setRedirect(true) : setRedirect(false)
-
-
-
-
 
     return (
         <div>
             <input type='file' onChange={(e) => onFileUpload(e.target.files[0])} />
             <button onClick={() => handleRedirect()}>x</button>
-
             {redirect ? <div><p>Calculating...</p> <Redirect to={'/stats'} /></div> : null}
         </div>
 
