@@ -1,11 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectHistory } from '../App/appSlice'
+import {
+    getStatistics
+} from '../../analyser/analyser.js'
 
 interface stat {
     name: string;
     watchedVideos: number;
 }
 
-const StatisticsTable = (props: { stats: stat[] }) => {
+const StatisticsTable = () => {
+    const history = useSelector(selectHistory)
+    const statistics: stat[] = getStatistics(history, 100)
     return (
         <table>
             <thead>
@@ -22,7 +29,7 @@ const StatisticsTable = (props: { stats: stat[] }) => {
                 </tr>
             </thead>
             <tbody>
-                {props.stats.map((item, id) => {
+                {statistics.map((item, id) => {
                     return (
                         <tr key={id}>
                             <th>{id + 1}</th>
